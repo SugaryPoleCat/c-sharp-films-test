@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Films
+﻿namespace Films
 {
     /// <summary>
     /// Comedy, Action, Thriller
     /// </summary>
-    enum Genres {Comedy, Action, Thriller };
+    enum Genres { Comedy, Action, Thriller };
     /// <summary>
     /// The movie class
     /// </summary>
@@ -21,11 +15,13 @@ namespace Films
         private int _id;
         private static int _count = 0;
 
-
         /// <summary>
         /// Show just the name
         /// </summary>
         public string Name { get { return name; } }
+        public DateTime RelaseDate { get { return relaseDate; } }
+        public Genres Genre { get { return genre; } }
+        public int Id { get { return _id; } }
 
         /// <summary>
         /// This just does ID and counting on each new construct.
@@ -48,11 +44,16 @@ namespace Films
             this.name = _name;
             //this.relaseDate = _releaseDate;
             if (!DateTime.TryParseExact(_releaseDate, "dd-MM-yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime _date))
-                {
+            {
                 throw new ArgumentException("Bad date format");
             }
             this.relaseDate = _date;
             this.genre = _genre;
+        }
+
+        public void AddMovie(string _name, Genres _genre, string _releaseDate)
+        {
+
         }
     }
 }
