@@ -26,6 +26,10 @@
         /// </summary>
         public int Id { get { return _id; } }
         /// <summary>
+        /// Returns count as int
+        /// </summary>
+        public static int Count { get { return _count; } }
+        /// <summary>
         /// returns ID as formatted.
         /// THIS IS NOT NECESSARY
         /// </summary>
@@ -53,10 +57,12 @@
         /// </summary>
         /// <param name="_fName">First name</param>
         /// <param name="_lName">OLast name</param>
-        public Director(string _fName, string _lName)
+        /// <param name="_gender">the ENUM gender</param>
+        public Director(string _fName, string _lName, Genders _gender) : this()
         {
             this.firstName = _fName;
             this.lastName = _lName;
+            this.gender = _gender;
         }
     }
 }
